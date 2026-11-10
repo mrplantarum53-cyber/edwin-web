@@ -1,0 +1,102 @@
+/* Paleta: verde #0f766e | verde oscuro #0b5a54 | ámbar #f59e0b | fondo #f3f6f4 | texto #16302b */
+
+/* ===== Estilos base (celular primero) ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%}
+body{
+  margin:0;min-height:100%;
+  background:#f3f6f4;color:#16302b;
+  font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;line-height:1.5;
+}
+
+/* Encabezado */
+header{background:#0f766e;color:#ffffff;padding:1.5rem 1rem}
+header .in{max-width:68rem;margin:0 auto;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;align-items:flex-end}
+header h1{margin:0;font-size:clamp(1.6rem,5vw,2.4rem);letter-spacing:-.02em}
+header p{margin:0;opacity:.9}
+
+/* Estructura principal (Grid) */
+.wrap{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:68rem;margin:0 auto;padding:1rem}
+section,form{background:#ffffff;border:1px solid #d5e0dc;border-radius:14px;padding:1.25rem}
+h2{margin:0 0 .75rem;font-size:1.15rem}
+
+/* Formulario */
+label{display:block;font-weight:600;font-size:.9rem;margin:.75rem 0 .25rem}
+input,select{
+  width:100%;padding:.65rem .75rem;
+  border:1px solid #d5e0dc;border-radius:8px;
+  background:#f3f6f4;color:#16302b;font:inherit;
+  transition:border-color .2s,box-shadow .2s;
+}
+input:focus,select:focus,button:focus-visible{
+  outline:none;border-color:#0f766e;
+  box-shadow:0 0 0 3px rgba(15,118,110,.4);
+}
+.btn{
+  margin-top:1rem;width:100%;padding:.75rem;border:0;border-radius:8px;
+  background:#0f766e;color:#ffffff;
+  font:inherit;font-weight:700;cursor:pointer;
+  transition:background .2s,transform .15s;
+}
+.btn:hover{background:#0b5a54;transform:translateY(-1px)}
+.err{color:#c2410c;font-size:.85rem;min-height:1.2rem;margin:.5rem 0 0}
+
+/* Estadísticas y barra de progreso */
+.stats{display:flex;gap:1.5rem;flex-wrap:wrap;color:#5d7570;font-size:.9rem;margin-bottom:.75rem}
+.stats b{color:#16302b;font-size:1.2rem}
+.bar{height:8px;background:#d5e0dc;border-radius:99px;overflow:hidden;margin-bottom:1rem}
+.bar i{display:block;height:100%;width:0;background:#f59e0b;transition:width .4s ease}
+
+/* Filtros (Flexbox) */
+.filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.filters button{
+  flex:1 1 auto;padding:.5rem .9rem;
+  border:1px solid #d5e0dc;border-radius:99px;
+  background:transparent;color:#16302b;font:inherit;cursor:pointer;
+  transition:all .2s;
+}
+.filters button:hover{border-color:#0f766e}
+.filters button[aria-pressed="true"]{background:#0f766e;border-color:#0f766e;color:#ffffff}
+
+/* Lista de tareas */
+ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+li{
+  display:flex;align-items:center;gap:.75rem;padding:.75rem;
+  border:1px solid #d5e0dc;border-left:5px solid #0f766e;border-radius:10px;
+  transition:background .2s,transform .2s;
+}
+li:hover{background:rgba(15,118,110,.08);transform:translateX(3px)}
+li.alta{border-left-color:#dc2626}
+li.media{border-left-color:#f59e0b}
+li.baja{border-left-color:#0f766e}
+li input{width:1.25rem;height:1.25rem;flex:none;accent-color:#0f766e}
+li .t{flex:1;min-width:0}
+li .t strong{display:block;overflow-wrap:anywhere}
+li .t small{color:#5d7570}
+li.done .t strong{text-decoration:line-through;color:#8aa39d}
+li .del{
+  flex:none;border:0;background:transparent;color:#5d7570;
+  font-size:1.3rem;cursor:pointer;padding:.25rem .5rem;border-radius:6px;
+  transition:color .2s,background .2s;
+}
+li .del:hover{color:#dc2626;background:rgba(220,38,38,.12)}
+.empty{text-align:center;color:#5d7570;padding:1.5rem 0}
+
+/* Pie de página */
+footer{text-align:center;color:#5d7570;padding:1.5rem 1rem;font-size:.85rem}
+
+
+/* ===================================================
+   MEDIA QUERIES (al final)
+   =================================================== */
+
+/* Tablets y escritorio (desde 768px) */
+@media (min-width:768px){
+  .wrap{grid-template-columns:20rem 1fr;align-items:start;padding:1.5rem}
+  form{position:sticky;top:1rem}
+}
+
+/* Respetar a quien prefiere menos animaciones */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}

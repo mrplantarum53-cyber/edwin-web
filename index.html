@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="in">
+          <div>
+            <h1>LifeTracker</h1>
+            <p>Instituto Life · organiza tus tareas y hábitos</p></div>
+          <p id="fecha"></p>
+        </div>
+    </header>
+    <main class="wrap">
+        <form id="form" novalidate aria-label="Nueva tarea">
+          <h2>Nueva tarea o hábito</h2>
+          <label for="titulo">¿Qué quieres lograr?</label>
+          <input id="titulo" name="titulo" type="text" required minlength="3" maxlength="80" placeholder="Ej: Estudiar JavaScript">
+          <label for="fechaLim">Fecha límite</label>
+          <input id="fechaLim" name="fechaLim" type="date" required>
+          <label for="tipo">Tipo</label>
+          <select id="tipo"><option value="Tarea">Tarea</option><option value="Hábito">Hábito diario</option></select>
+          <label for="prio">Prioridad</label>
+          <select id="prio"><option value="baja">Baja</option><option value="media" selected>Media</option><option value="alta">Alta</option></select>
+          <p class="err" id="err" role="alert"></p>
+          <button class="btn" type="submit">Agregar</button>
+        </form>
+       
+        <section aria-label="Lista de tareas">
+          <h2>Mi lista</h2>
+          <div class="stats"><span><b id="nTotal">0</b> en total</span><span><b id="nPend">0</b> pendientes</span><span><b id="nComp">0</b> completadas</span></div>
+          <div class="bar" aria-hidden="true"><i id="prog"></i></div>
+          <div class="filters" role="group" aria-label="Filtrar">
+            <button type="button" data-f="todas" aria-pressed="true">Todas</button> 
+            <button type="button" data-f="pendientes" aria-pressed="false">Pendientes</button>
+            <button type="button" data-f="completadas" aria-pressed="false">Completadas</button>
+          </div>
+          <ul id="lista"></ul>
+        </section>
+      </main>
+       
+      <footer>© Instituto Life · Proyecto integrador de Desarrollo Web Frontend</footer>
+       
+      <script src="java/java.js"></script>
+
+
+
+    
+</body>
+</html>
